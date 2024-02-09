@@ -1,0 +1,22 @@
+name: Install Node.js and Run Script
+
+on: [push]
+
+jobs:
+  install-node-and-run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Display Node.js version
+      run: node --version
+
+    - name: Run Node.js script
+      run: node index.js
